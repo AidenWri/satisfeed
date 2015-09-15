@@ -1,0 +1,169 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+  font-size: 32px;
+  color: #000;
+}
+
+button{
+  background-color: #000000;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 6%;
+  color: white;
+}
+input[type="checkbox"] {
+   left: -99999px;
+}
+
+img#good{
+  float: right;
+}
+
+img.logo{
+padding: 10px 20px;
+}
+input[type=checkbox]{
+    display: none;
+}
+
+
+ input[type=checkbox] + label{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    padding-left: 40px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked + label{
+  /*background-image: url(https://image.freepik.com/free-icon/black-check-box-with-white-check_318-76893.png);
+    background-size: 80%;*/
+    background-position-y: -32px;
+}
+
+label{
+ background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d2a60beb8fb6bbb280642579049ebf65.png);
+}
+label.reasonLabel {
+    left: 162px;
+    position: absolute;
+    margin-top: 10px;
+}
+
+ul {
+    margin-top: 20px;
+}
+.whyText{
+  font-size: 30px;
+margin-bottom: 40px;
+}
+#container{
+  margin-top: 20px;
+}
+
+div#question {
+    font-size: 43px;
+    margin-top: 22px;
+    text-align: center;
+}
+div#badResponse{
+  width: auto;
+    float: left;
+}
+li{
+  list-style: none;
+  margin-left: 140px;
+  font-size: 30px;
+}
+p{
+  font-size: 23px;
+margin-top: 28px;
+}
+textarea{
+  width: 100%;
+  margin-top: 20px;
+    border: 1px solid black;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

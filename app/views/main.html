@@ -1,0 +1,42 @@
+<img src="images/logo-mns.jpeg" class="logo">
+<div class="container">
+<div id = "question" class="row" ng-show="question">
+    How was your collection experience?
+    <div id="container" class="row" >
+    <div id="badResponse"  ng-click="selectResponse('bad')">
+        <img id ="bad" src ='images/sad.png'/>
+      </div>
+    <div id="goodResponse"  ng-click="selectResponse('good')">
+        <img id="good" src ='images/smile.png'/>
+      </div>
+    </div>
+</div>
+
+<div ng-show="why">
+  <div class="whyText">
+  <span ng-show="badResponse">We&#39;re sorry you had a bad experience with us.</span>
+  <span ng-show="goodResponse">We&#39;re so pleased you enjoyed your experience with us.</span>
+  What is the main reason for your response?
+</div>
+
+<ul ng-repeat="option in whyOptions">
+  <li><input type="checkbox" class="reason" id={{option}} checklist-model="form.why" checklist-value="option">{{option}}
+  <label for={{option}} class="reasonLabel"></label></li>
+</ul>
+
+
+<button id ="enterBtn" ng-click="responseReason()">Next</button>
+</div>
+
+<div ng-show="more" class="more">
+  <p>We&#39;d love to hear more &#45; please use the field below to tell us about your experience, or just press &#39;SKIP&#39; to complete this survey
+  </p>
+ <textarea rows="4" cols="50" ng-model="form.extraInfo"></textarea>
+ <br/>
+ <button id ="skipBtn" ng-click="moreInfo()">{{form.extraInfo.length ? 'Next' : 'Skip'}}</button>
+ </div>
+
+<div ng-show="thankYou">
+<p>Thanks so much for completing our survey. We appreciate your feedback and we will use it to improve our services.</P>
+</div>
+</div>
