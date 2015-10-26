@@ -1,6 +1,7 @@
 <img src="images/logo-mns.jpeg" class="logo">
 <div class="container">
-<div id = "question" class="row" ng-show="question">
+
+<div id="question" class="row" ng-show="question && form.storeID">
     How was your collection experience?
     <div id="container" class="row" >
     <div id="badResponse"  ng-click="selectResponse('bad')">
@@ -10,6 +11,15 @@
         <img id="good" src ='images/smile.png'/>
       </div>
     </div>
+</div>
+
+<div ng-if="!form.storeID">
+    <form ng-submit="saveStoreID()">
+        <label>
+            Store ID <input type="text" ng-model="$parent.tempStoreID" />
+        </label>
+        <button class="btn">Save</button>
+    </form>
 </div>
 
 <div ng-show="why">

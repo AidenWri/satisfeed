@@ -24,8 +24,11 @@ angular.module('satisfeedApp')
 
     $scope.form = {
       experience: '',
-      extraInfo: ''
+      extraInfo: '',
+      storeID: localStorage.getItem('storeID') || null
     };
+
+    $scope.tempStoreID = null;
 
     $scope.whyOptions = [
       'Queue length/time',
@@ -40,6 +43,14 @@ angular.module('satisfeedApp')
     $scope.thankYou = false;
     $scope.badResponse = false;
     $scope.goodResponse = false;
+
+    $scope.saveStoreID = function() {
+        $scope.form.storeID = $scope.tempStoreID;
+
+        if (window.localStorage !== undefined) {
+            window.localStorage.setItem('storeID', $scope.form.storeID);
+        }
+    };
 
     $scope.selectResponse = function(response) {
       $scope.question = false;
