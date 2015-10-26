@@ -13,10 +13,9 @@ body {
 
 button{
   background-color: #000000;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  float: right;
   margin: 6%;
+  margin-right: 0px;
   color: white;
 }
 input[type="checkbox"] {
@@ -52,10 +51,8 @@ input[type=checkbox]:checked + label{
     background-position-y: -32px;
 }
 
-label{
- background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d2a60beb8fb6bbb280642579049ebf65.png);
-}
 label.reasonLabel {
+  background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d2a60beb8fb6bbb280642579049ebf65.png);
     left: 162px;
     position: absolute;
     margin-top: 10px;
