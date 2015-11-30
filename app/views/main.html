@@ -1,47 +1,56 @@
-<img src="images/logo-mns.jpeg" class="logo">
 <div class="container">
 
+  <div id="storeID" ng-show="intro && form.storeID">
+    <span class="titleText">  We would like your feedback.</span>
+    <span class="questionText">Please take part in our survey, so we can improve our services</span>
+    <br/>
+    <button ng-click="startSurvey()">OK, let's go!</button>
+  </div>
+
 <div id="question" class="row" ng-show="question && form.storeID">
-    How was your collection experience?
+    <span class="titleText">How was your collection experience?</span>
     <div id="container" class="row" >
+      <div id="goodResponse"  ng-click="selectResponse('good')">
+          <img id="good" src ='images/happy.svg'/>
+          <span class ="selected"></span>
+        </div>
     <div id="badResponse"  ng-click="selectResponse('bad')">
-        <img id ="bad" src ='images/sad.png'/>
-      </div>
-    <div id="goodResponse"  ng-click="selectResponse('good')">
-        <img id="good" src ='images/smile.png'/>
+        <img id ="bad" src ='images/sad.svg'/>
+        <span class ="selected"></span>
       </div>
     </div>
 </div>
 
-<div ng-if="!form.storeID">
+<div id = "storeID" ng-if="!form.storeID">
     <form ng-submit="saveStoreID()">
         <label>
-            Store ID <input type="text" ng-model="$parent.tempStoreID" />
+          <span class="titleText">  Store ID </span><input type="text" id="storeInput" ng-model="$parent.tempStoreID" />
         </label>
-        <button class="btn">Save</button>
+        <button>Save</button>
     </form>
 </div>
 
+
 <div ng-show="why">
   <div class="whyText">
-  <span ng-show="badResponse">We&#39;re sorry you had a bad experience with us.</span>
-  <span ng-show="goodResponse">We&#39;re so pleased you enjoyed your experience with us.</span>
-  What is the main reason for your response?
+  <!-- <span ng-show="badResponse">We&#39;re sorry you had a bad experience with us.</span>
+  <span ng-show="goodResponse">We&#39;re so pleased you enjoyed your experience with us.</span> -->
+<span class="titleText">  What is the main reason for your response?</span>
 </div>
 
-<ul ng-repeat="option in whyOptions">
-  <li><input type="checkbox" class="reason" id={{option}} checklist-model="form.why" checklist-value="option">{{option}}
-  <label for={{option}} class="reasonLabel"></label></li>
+<ul  >
+  <li ng-repeat="option in whyOptions"><input type="checkbox" class="reason" id={{option}} checklist-model="form.why" checklist-value="option">{{option}}
+  <label for={{option}} class="reasonLabel">
+    <span class="icon-checkmark"></span>
+  </label></li>
 </ul>
-
-
-<button id ="enterBtn" ng-click="responseReason()">Next</button>
+<button class="reasonBtn" id ="enterBtn" ng-click="responseReason()">Next</button>
 </div>
 
 <div ng-show="more" class="more">
-  <p>We&#39;d love to hear more &#45; please use the field below to tell us about your experience, or just press &#39;SKIP&#39; to complete this survey
-  </p>
- <textarea rows="4" cols="50" ng-model="form.extraInfo"></textarea>
+  <span class = "titleText">We&#39;d love to hear more.<br/> Tell us about your experience</span><br/>
+    <span class="smallText">Or press &#39;SKIP&#39; to finish the survey</span>
+ <textarea rows="4" cols="50" ng-model="form.extraInfo" placeholder="Type your experience here"></textarea>
  <br/>
  <button id ="skipBtn" ng-click="moreInfo()">{{form.extraInfo.length ? 'Next' : 'Skip'}}</button>
  </div>

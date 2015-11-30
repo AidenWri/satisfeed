@@ -16,40 +16,44 @@ angular.module('satisfeedApp')
     ];
 
     var customerResponse = new Firebase(
-      'https://customersatisfaction.firebaseIO.com');
+      'https://customersatisfaction.firebaseIO.com/stores');
 
 
     $scope.responses = $firebaseArray(customerResponse);
 
-
     $scope.form = {
       experience: '',
       extraInfo: '',
-      storeID: localStorage.getItem('storeID') || null
+      storeID: localStorage.getItem('storeID')
     };
 
     $scope.tempStoreID = null;
 
     $scope.whyOptions = [
-      'Queue length/time',
+      'Queue length or time',
       'Quality of service',
       'Speed of service',
       'Condition of parcel'
     ];
-
-    $scope.question = true;
+    $scope.intro = true;
+    $scope.question = false;
     $scope.why = false;
     $scope.reason = false;
     $scope.thankYou = false;
     $scope.badResponse = false;
     $scope.goodResponse = false;
 
-    $scope.saveStoreID = function() {
-        $scope.form.storeID = $scope.tempStoreID;
+    $scope.startSurvey = function() {
+      $scope.intro = false;
+      $scope.question = true;
+    };
 
-        if (window.localStorage !== undefined) {
-            window.localStorage.setItem('storeID', $scope.form.storeID);
-        }
+    $scope.saveStoreID = function() {
+      $scope.form.storeID = $scope.tempStoreID;
+
+      if (window.localStorage !== undefined) {
+        window.localStorage.setItem('storeID', $scope.form.storeID);
+      }
     };
 
     $scope.selectResponse = function(response) {
@@ -74,18 +78,24 @@ angular.module('satisfeedApp')
     $scope.moreInfo = function() {
       $scope.more = false;
       $scope.thankYou = true;
-      var boom = setTimeout(function() {
+      var refreshTimer = setTimeout(function() {
         resetting();
       }, 5000);
     };
 
     function resetting() {
-      $scope.responses.$add({
-        customerRsponse: $scope.form
+      var timeOfResponse = new Date();
+      var timeOfResponse2 = timeOfResponse.toString();
+      customerResponse.child($scope.form.storeID).push({
+        experience: $scope.form.experience,
+        extraInfo: $scope.form.extraInfo || null,
+        why: $scope.form.why || null,
+        time: timeOfResponse2
       });
       $scope.thankYou = false;
-      $scope.question = true;
-      $scope.form = {};
+      $scope.intro = true;
+      $scope.form.experience = {};
+      $scope.form.extraInfo = null;
       $scope.form.why = {};
     }
 

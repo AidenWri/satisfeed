@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.svg");
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.ttf");
+  src: url("fonts/icomoon.woff");
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -9,22 +17,53 @@ body {
   padding: 0;
   font-size: 32px;
   color: #000;
+  background: url(../images/background.png) no-repeat;
+background-size: 100%;
 }
+
+.titleText {
+  font-size: 42px;
+    font-weight: 500;
+    width: 575px;
+    display: block;
+    margin: 41px auto 0 auto;
+}
+
+.questionText {
+  display: block;
+  width: 627px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 38px;
+}
+#good,
+#bad{
+    width: 25%;
+    margin-top: 3%;
+}
+
+#good{
+float: left;
+margin-left: 10%;
+}
+
+ #bad{
+   float: right;
+    margin-right: 10%;
+ }
 
 button{
   background-color: #000000;
-  float: right;
-  margin: 6%;
-  margin-right: 0px;
   color: white;
+  margin: 10% 28.5%;
+  width: 300px;
 }
+
+
 input[type="checkbox"] {
    left: -99999px;
 }
 
-img#good{
-  float: right;
-}
 
 img.logo{
 padding: 10px 20px;
@@ -33,33 +72,41 @@ input[type=checkbox]{
     display: none;
 }
 
-
- input[type=checkbox] + label{
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    padding-left: 40px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    line-height: 32px;
-    cursor: pointer;
-}
-
-input[type=checkbox]:checked + label{
-  /*background-image: url(https://image.freepik.com/free-icon/black-check-box-with-white-check_318-76893.png);
-    background-size: 80%;*/
-    background-position-y: -32px;
+input[type=checkbox]:checked + label .icon-checkmark:before{
+opacity:1;
+color: white;
+background: black;
 }
 
 label.reasonLabel {
-  background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d2a60beb8fb6bbb280642579049ebf65.png);
-    left: 162px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+
+#storeInput{
+  float: right;
+}
+.icon-checkmark{
+  height: 38px;
+    width: 38px;
     position: absolute;
-    margin-top: 10px;
+    border-right: 1px solid black;
+}
+
+.icon-checkmark:before {
+  font-family: 'icomoon';
+    content: "\e900";
+    padding: 0 5px;
+    position: absolute;
+    opacity: 0.1;
 }
 
 ul {
     margin-top: 20px;
+        padding-left: 0px;
 }
 .whyText{
   font-size: 30px;
@@ -75,13 +122,17 @@ div#question {
     text-align: center;
 }
 div#badResponse{
-  width: auto;
-    float: left;
+
 }
 li{
   list-style: none;
-  margin-left: 140px;
-  font-size: 30px;
+  border: 1px solid black;
+  margin: 10px;
+  font-size: 27px;
+  width: 46%;
+  float: left;
+  position: relative;
+  padding-left: 56px;
 }
 p{
   font-size: 23px;
@@ -92,75 +143,9 @@ textarea{
   margin-top: 20px;
     border: 1px solid black;
 }
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.container {
+  max-width: 780px;
+  height: 400px;
+  margin-top: 21%;
+  background: white;
 }
