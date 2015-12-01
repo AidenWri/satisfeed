@@ -26,7 +26,8 @@ background-size: 100%;
     font-weight: 500;
     width: 575px;
     display: block;
-    margin: 41px auto 0 auto;
+    margin: 28px auto 0 auto;
+    text-align: center;
 }
 
 .questionText {
@@ -39,7 +40,13 @@ background-size: 100%;
 #good,
 #bad{
     width: 25%;
-    margin-top: 3%;
+  margin-top: 0;
+  opacity: 0.7;
+}
+
+#good.selected,
+#bad.selected {
+  opacity: 1;
 }
 
 #good{
@@ -55,7 +62,7 @@ margin-left: 10%;
 button{
   background-color: #000000;
   color: white;
-  margin: 10% 28.5%;
+  margin: 3% 28.5%;
   width: 300px;
 }
 
@@ -118,7 +125,6 @@ margin-bottom: 40px;
 
 div#question {
     font-size: 43px;
-    margin-top: 22px;
     text-align: center;
 }
 div#badResponse{
@@ -145,7 +151,14 @@ textarea{
 }
 .container {
   max-width: 780px;
-  height: 400px;
+    height: 496px;
   margin-top: 21%;
   background: white;
+}
+
+.smallText{
+  font-size: 23px;
+text-align: center;
+width: 100%;
+display: block;
 }

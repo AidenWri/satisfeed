@@ -10,21 +10,22 @@
 <div id="question" class="row" ng-show="question && form.storeID">
     <span class="titleText">How was your collection experience?</span>
     <div id="container" class="row" >
-      <div id="goodResponse"  ng-click="selectResponse('good')">
-          <img id="good" src ='images/happy.svg'/>
+      <div id="goodResponse"  ng-click="response = 'good'">
+          <img id="good" src ='images/happy.svg' ng-class=goodClass ng-click="changeClassGood()"/>
           <span class ="selected"></span>
         </div>
-    <div id="badResponse"  ng-click="selectResponse('bad')">
-        <img id ="bad" src ='images/sad.svg'/>
+    <div id="badResponse"  ng-click="response = 'bad'">
+        <img id ="bad" src ='images/sad.svg' ng-class=badClass ng-click="changeClassBad()"/>
         <span class ="selected"></span>
       </div>
     </div>
+    <button ng-show="goodBadButton" ng-click="selectResponse(response)">Next</button>
 </div>
 
 <div id = "storeID" ng-if="!form.storeID">
     <form ng-submit="saveStoreID()">
         <label>
-          <span class="titleText">  Store ID </span><input type="text" id="storeInput" ng-model="$parent.tempStoreID" />
+          <span class="titleText"> Please enter your store ID </span><input type="text" id="storeInput" ng-model="$parent.tempStoreID" />
         </label>
         <button>Save</button>
     </form>
@@ -48,10 +49,10 @@
 </div>
 
 <div ng-show="more" class="more">
-  <span class = "titleText">We&#39;d love to hear more.<br/> Tell us about your experience</span><br/>
+  <span class = "titleText">We&#39;d love to hear more.<br/> Tell us about your experience</span>
     <span class="smallText">Or press &#39;SKIP&#39; to finish the survey</span>
  <textarea rows="4" cols="50" ng-model="form.extraInfo" placeholder="Type your experience here"></textarea>
- <br/>
+
  <button id ="skipBtn" ng-click="moreInfo()">{{form.extraInfo.length ? 'Next' : 'Skip'}}</button>
  </div>
 
