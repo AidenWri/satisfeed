@@ -42,6 +42,7 @@ angular.module('satisfeedApp')
     $scope.thankYou = false;
     $scope.badResponse = false;
     $scope.goodResponse = false;
+    $scope.goodBadButton = false;
 
     $scope.startSurvey = function() {
       $scope.intro = false;
@@ -55,6 +56,33 @@ angular.module('satisfeedApp')
         window.localStorage.setItem('storeID', $scope.form.storeID);
       }
     };
+
+    $scope.changeClassGood = function() {
+      if ($scope.goodClass === "unselected") {
+        $scope.goodClass = "selected";
+        $scope.badClass = "unselected";
+      } else if ($scope.goodClass === "selected") {
+        $scope.goodClass = "unselected";
+      } else {
+        $scope.goodClass = "selected";
+        $scope.badClass = "unselected";
+      }
+      $scope.goodBadButton = true;
+    };
+
+    $scope.changeClassBad = function() {
+      if ($scope.badClass === "unselected") {
+        $scope.badClass = "selected";
+        $scope.goodClass = "unselected";
+      } else if ($scope.badClass === "selected") {
+        $scope.badClass = "unselected";
+      } else {
+        $scope.badClass = "selected";
+        $scope.goodClass = "unselected";
+      }
+      $scope.goodBadButton = true;
+    };
+
 
     $scope.selectResponse = function(response) {
       $scope.question = false;
@@ -97,6 +125,9 @@ angular.module('satisfeedApp')
       $scope.form.experience = {};
       $scope.form.extraInfo = null;
       $scope.form.why = {};
+      $scope.goodBadButton = false;
+      $scope.goodClass = "unselected";
+      $scope.badClass = "unselected";
     }
 
   });
