@@ -106,9 +106,9 @@ angular.module('satisfeedApp')
     $scope.moreInfo = function() {
       $scope.more = false;
       $scope.thankYou = true;
-      // var refreshTimer = setTimeout(function() {
-      //   resetting();
-      // }, 5000);
+      var refreshTimer = setTimeout(function() {
+        resetting();
+      }, 5000);
     };
 
     function resetting() {
