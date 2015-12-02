@@ -26,8 +26,9 @@ background-size: 100%;
     font-weight: 500;
     width: 575px;
     display: block;
-    margin: 28px auto 0 auto;
+    margin: 0 auto;
     text-align: center;
+    padding-top: 30px;
 }
 
 .questionText {
@@ -149,11 +150,19 @@ textarea{
   margin-top: 20px;
     border: 1px solid black;
 }
-.container {
+.container1 {
   max-width: 780px;
     height: 496px;
-  margin-top: 21%;
-  background: white;
+  margin-top: 25%;
+}
+.backgroundLayer{
+  background: #F2EDED;
+max-width: 780px;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+opacity: 0.9;
 }
 
 .smallText{
@@ -161,4 +170,9 @@ textarea{
 text-align: center;
 width: 100%;
 display: block;
+}
+
+.endMessage {
+    height: 100%;
+    width: 100%;
 }
